@@ -6,7 +6,7 @@ type QuoteDisplayProps = {
 const QuoteDisplay = ({quote, userInput}: QuoteDisplayProps) => {
     return (
         <p className="text-lg font-mono">
-      {quote.split("").map((char, idx) => {
+        {quote.split("").map((char, idx) => {
         const typedChar = userInput[idx];
         let color = "text-gray-500";
 
