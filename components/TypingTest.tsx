@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import QuoteDisplay from "./QuoteDisplay";
 import WPMDisplay from "./WPMDisplay";
 import AccuracyDisplay from "./AccuracyDisplay";
+import Timer from "./Timer";
 
     const quotes = [
   "The quick brown fox jumps over the lazy dog. It’s a sentence often used to showcase fonts and test typing skills. Despite being short, it includes every letter of the alphabet.",
@@ -22,7 +23,29 @@ const TypingTest = () => {
     const [userInput, setUserInput] = useState("");
     const quote = quotes[quoteIndex];
     const [passedTime, setPassedTime] = useState(0)
-    const [isRunning, setIsRunning] = useState(true);
+    const [isRunning, setIsRunning] = useState(false);
+    const [resetTrigger, setResetTrigger] = useState(false);
+
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if(!isRunning) setIsRunning(true);
+        setUserInput(e.target.value)
+    }
+
+    const handleTimeUp = () =>{
+        setIsRunning(false);
+    }
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (!isRunning && e.key === 'Enter') {
+            resetTest();
+        }
+    };
+
+    const resetTest = () =>{
+        setUserInput("");
+        setResetTrigger(prev => !prev);
+        setIsRunning(false);
+    }
 
     useEffect(() => {
         if (!isRunning) return;
@@ -48,21 +71,22 @@ const TypingTest = () => {
 
     return (
         <div className="flex flex-col items-center gap-4 max-w-xl mx-auto">
-
+            <Timer isRunning={isRunning} onTimeUp={handleTimeUp} resetTrigger={resetTrigger}/>
             <AccuracyDisplay quote={quote} userInput={userInput} />
             <WPMDisplay userInput={userInput} passedTime={ passedTime}/>
             <QuoteDisplay quote={quote} userInput={userInput} />
             
-            <input 
+
+           <input 
                 type="text"
                 value={userInput}
-                onChange={e => setUserInput(e.target.value)}
+                onChange={handleInput} 
+                onKeyDown={handleKeyDown} 
                 autoFocus
                 className="border p-2 rounded text-lg w-140 text-center font-mono"
                 spellCheck={false}
-
             />
-      
+                
       
 
         </div>
