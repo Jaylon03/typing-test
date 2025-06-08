@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 
 type WPMDisplayProp = {
     userInput:string;

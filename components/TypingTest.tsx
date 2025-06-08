@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import QuoteDisplay from "./QuoteDisplay";
 import WPMDisplay from "./WPMDisplay";
+import AccuracyDisplay from "./AccuracyDisplay";
 
     const quotes = [
   "The quick brown fox jumps over the lazy dog. It’s a sentence often used to showcase fonts and test typing skills. Despite being short, it includes every letter of the alphabet.",
@@ -47,9 +48,11 @@ const TypingTest = () => {
 
     return (
         <div className="flex flex-col items-center gap-4 max-w-xl mx-auto">
+
+            <AccuracyDisplay quote={quote} userInput={userInput} />
             <WPMDisplay userInput={userInput} passedTime={ passedTime}/>
             <QuoteDisplay quote={quote} userInput={userInput} />
-
+            
             <input 
                 type="text"
                 value={userInput}
