@@ -16,7 +16,7 @@ const AccuracyDisplay = ({userInput, quote}: AccuracyDisplayProps) => {
 
     return (
     <div className="text-md text-gray-500 mb-2">
-        Accuracy: <span className="font-bold">{accuracy}%</span>
+        Accuracy: <span className=" text-xl font-semibold">{accuracy}%</span>
     </div>
     );
 

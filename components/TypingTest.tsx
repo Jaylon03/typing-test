@@ -71,11 +71,17 @@ const TypingTest = () => {
 
     return (
         <div className="flex flex-col items-center gap-4 max-w-xl mx-auto">
+            
+           <div className="flex items-baseline justify-center gap-8 mb-6">
+            
             <Timer isRunning={isRunning} onTimeUp={handleTimeUp} resetTrigger={resetTrigger}/>
             <AccuracyDisplay quote={quote} userInput={userInput} />
             <WPMDisplay userInput={userInput} passedTime={ passedTime}/>
-            <QuoteDisplay quote={quote} userInput={userInput} />
             
+
+            </div> 
+
+            <QuoteDisplay quote={quote} userInput={userInput} />
 
            <input 
                 type="text"

@@ -17,7 +17,7 @@ export default function WPMDisplay({userInput, passedTime}: WPMDisplayProp) {
 
     return (
         <div className="text center mt-4">
-            <p className="text-xl font-semibold">WPM: {wpm}</p>
+            <p className="text-xl font-bold">WPM: {wpm}</p>
         </div>
 
     );
