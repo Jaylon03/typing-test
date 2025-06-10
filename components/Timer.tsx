@@ -25,7 +25,7 @@ const Timer = ({isRunning, onTimeUp, resetTrigger}: TimerProps) =>{
             setTimeLeft((prev) => {
                 if (prev === 1) {
                     clearInterval(interval);
-                    onTimeUp
+                    onTimeUp();
                 }
                 return prev - 1
             });
