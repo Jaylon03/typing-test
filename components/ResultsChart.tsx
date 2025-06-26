@@ -65,5 +65,16 @@ export default function ResultsChart({
     },
   };
 
-  return <Chart type="bar" data={data} options={options} />;
+  return (
+  <div >
+    
+    
+    <Chart type="bar" data={data} options={options} />
+  
+  </div>
+  
+
+
+
+  );
 }

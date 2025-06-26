@@ -134,7 +134,7 @@ const TypingTest = () => {
             />
 
             {showResults && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div className="fixed inset-0 bg-[rgba(128,128,128,0.2)] flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-lg">
                     <h2 className="text-2xl font-bold mb-2">Round Results</h2>
                     <p>WPM: {results[results.length - 1]?.wpm}</p>
